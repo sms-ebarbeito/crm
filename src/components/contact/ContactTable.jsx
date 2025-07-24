@@ -1,6 +1,6 @@
 import React from 'react';
 import { PencilIcon, TrashIcon, ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline'; // Ejemplo de cómo usar heroicons
-import Avatar from '../ui/Avatar';
+import Avatar from '../ui/Avatar.jsx';
 import { formatPhoneNumberForWhatsApp } from '../../utils/helpers';
 
 const ContactTable = ({ contacts, onEdit, onDelete }) => {
