@@ -1,6 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
 
-const SUPABASE_URL = 'https://jsbgutbsckwintsnhnno.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpzYmd1dGJzY2t3aW50c25obm5vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNjk3MjIsImV4cCI6MjA2ODY0NTcyMn0.aRa4s9rzVIFbPBQYcaPDnbRgFXWZ8jmVDYmO2HhY930';
+// Accedes a las variables de entorno a través de import.meta.env
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+// Asegúrate de que las variables se cargaron correctamente antes de crear el cliente
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+    throw new Error("Supabase URL or Anon Key are missing. Check your .env file.");
+}
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
